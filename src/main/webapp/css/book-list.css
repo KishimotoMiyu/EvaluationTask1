@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+	/* 共通 */
+
+      *{
+		  padding: 0;
+		  margin:0;
+	  }
+	  
+	 
+
+	  main{
+		  background-color:#D8D5C4;
+		  min-height:80vh;
+		  padding:60px;
+	  }
+	  
+	  .container{
+		  background-color: #fff;
+		  padding:30px;
+		  width:100%;
+		  max-width:90vw;
+		  min-height:70vh;
+		  margin:0 auto;
+		  border-radius: 10px;
+	  }
+	  
+	  .message{
+		  display: inline-block;
+		  padding-left:70px;
+	  }
+	     
+	 
+	  
+	  .site_title , .section_title{
+		  font-size: 24px;
+		  line-height: 60px;
+		  letter-spacing: 2px;
+	  }
+	  
+	  a{
+		  text-decoration: none;
+	  }
+	  
+	  /* header */
+	  
+	   header , footer{
+		  height:60px;
+		  background-color:rgb(99, 98, 92);
+		  
+	  }
+	  
+	  header a:hover {
+			 opacity: .7; 
+		 }
+	  
+	  header a {
+		   color:#fff;
+	  }
+	  
+	  .header_inner{
+		  margin:0 auto;
+		  width: 100%;
+		  max-width:1200px;
+	  }
+	  
+	  /* table関係 */
+	  
+	    main a{
+		  color:rgb(68, 74, 69);
+		   display: block;
+		  line-height: 20px;
+	  }
+
+	  table{
+		  width:90%;
+		  margin:0 auto;
+		  border-collapse:collapse;
+	  }
+	  
+	 td{
+		  padding:8px;
+		  text-align: center;
+	  }
+	  
+	  th a:hover {
+		  opacity:.5;
+	  }
+
+	  
+	  thead  th {
+		  font-weight: bold;
+	  }
+	  
+	  thead  th a {
+		  display: inline-block;
+	  }
+	  
+	  td a{
+		  line-height: 40px;
+	  }
+	  
+	  tbody tr:hover{
+			  background-color:#D8D5C4;
+		  }
+	  
+	 

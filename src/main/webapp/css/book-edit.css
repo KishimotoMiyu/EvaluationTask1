@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+	/* 共通 */
+
+      *{
+		  padding: 0;
+		  margin:0;
+	  }
+
+	  main{
+		  background-color:#D8D5C4;
+		  min-height:80vh;
+		  padding:60px;
+	  }
+	  
+	  .container{
+		  background-color: #fff;
+		  padding:30px;
+		  width:100%;
+		  max-width:90vw;
+		  min-height:70vh;
+		  margin:0 auto;
+		  border-radius: 10px;
+		  padding-top:130px;
+	  }
+	  
+	  .site_title , .section_title{
+		  font-size: 24px;
+		  line-height: 60px;
+		  letter-spacing: 2px;
+	  }
+	  
+	  
+	  a{
+		  text-decoration: none;
+	  }
+	  
+	  /* header */
+	  
+	   header , footer{
+		  height:60px;
+		  background-color:rgb(99, 98, 92);
+		  
+	  }
+	  
+	  a:hover , #submit:hover {
+			 opacity: .7; 
+		 }
+	  
+	  header a {
+		   color:#fff;
+	  }
+	  
+	  .header_inner{
+		  margin:0 auto;
+		  width: 100%;
+		  max-width:1200px;
+	  }
+	  
+	  /* form関係 */
+	  
+	  form{
+		  width: 100%;
+		  max-width:600px;
+		  margin:0 auto;
+	  }
+	  
+	  label{
+		    padding-left: 30px;
+		    display:inline-block;
+		    width:100%;
+		    max-width: 150px;
+		}
+	 
+	 .container input, select, textarea{
+	    max-width: 400px;
+	    width:100%;
+	    height: 50px;
+	    margin:0 auto;
+	    margin-top: 16px;
+	    padding-left:5px;
+	}
+	
+	#submit{
+		display: inline-block;
+		background-color:rgb(99, 98, 92);
+		color:#fff;
+		font-weight:bold;
+		max-width: 600px;
+		height:60px;
+		margin-top:40px;
+		border: none;
+	}
+	
+	.back{
+		text-align: center;
+		line-height: 60px;
+	}
+	
+	.back a{
+		color:rgb(99, 98, 92);
+	}

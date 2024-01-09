@@ -26,7 +26,7 @@ public class BookEditServlet extends HttpServlet {
 		String edit =  request.getParameter("edit");
 		String janCode = request.getParameter("janCode");
 		if(edit == null || edit.isEmpty()) {
-			//もし直接/bookeditのURLを入力してたら一覧画面に遷移させる
+			//もし直接bookeditのURLを入力してたら一覧画面に遷移させる
 			response.sendRedirect("booklist");
 		} else { 
 			
