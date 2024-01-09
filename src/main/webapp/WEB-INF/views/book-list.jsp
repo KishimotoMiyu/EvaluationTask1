@@ -18,6 +18,7 @@
 <main>
 	<div class="container">
 		<p id="section_title">商品一覧</p>
+		 <span>※項目欄横のマークで昇順もしくは降順に並び替えが可能です。</span>
 		<p id="message">${message}</p>
 			<table>
 					<thead>

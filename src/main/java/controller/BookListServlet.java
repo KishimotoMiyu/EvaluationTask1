@@ -37,7 +37,8 @@ public class BookListServlet extends HttpServlet {
 		}
 		
 		if( update == 1 ){
-			request.setAttribute("message","更新が完了しました");
+			String bookName = (String)request.getAttribute("bookName");
+			request.setAttribute("message", "書籍名称 「" + bookName + "」の情報更新が完了しました");
 		} else {
 			request.setAttribute("message","更新できませんでした");
 		}

@@ -71,6 +71,7 @@ public class BookEditServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("update", update);
+		request.setAttribute("bookName", bookName);
 		request.getRequestDispatcher("/booklist").forward(request, response);
 	}
 	

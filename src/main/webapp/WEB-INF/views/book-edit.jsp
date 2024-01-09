@@ -20,8 +20,10 @@
 			<div class="container">
 			
 				<form action="bookedit" method="post">	      
-					<label>JANコード</label><input class="no_spin" type="number" name="janCode" value="<%= book.getJanCode() %>" min="0" step="1" required><br>
-					<label>ISBNコード</label><input type="number" class="no_spin" name="isbnCode" value="<%= book.getIsbnCode() %>" min="0" step="1" required><br>
+					<label>JANコード</label><input class="no_spin" type="number" name="janCode" value="<%= book.getJanCode() %>" min="0" step="1" required>
+					<span>※13桁以内で入力してください</span><br>
+					<label>ISBNコード</label><input type="number" class="no_spin" name="isbnCode" value="<%= book.getIsbnCode() %>" min="0" step="1" required>
+					<span>※13桁以内で入力してください</span><br>
 					<label>書籍名称</label><input type="text" name="bookName" value="<%= book.getBookName() %>"  required><br> 
 					<label>書籍名称カナ</label><input type="text" name="bookKana" value="<%= book.getBookKana() %>"  required><br> 
 					<label>価格</label><input type="number" class="no_spin" name="price" value="<%= book.getPrice() %>" min="0" step="1" required><br>
