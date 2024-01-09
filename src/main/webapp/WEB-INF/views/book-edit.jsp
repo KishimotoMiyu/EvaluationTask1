@@ -20,11 +20,11 @@
 			<div class="container">
 			
 				<form action="bookedit" method="post">	      
-					<label>JANコード</label><input type="number" name="janCode" value="<%= book.getJanCode() %>" required><br>
-					<label>ISBNコード</label><input type="number" name="isbnCode" value="<%= book.getIsbnCode() %>"  required><br>
+					<label>JANコード</label><input class="no_spin" type="number" name="janCode" value="<%= book.getJanCode() %>" min="0" step="1" required><br>
+					<label>ISBNコード</label><input type="number" class="no_spin" name="isbnCode" value="<%= book.getIsbnCode() %>" min="0" step="1" required><br>
 					<label>書籍名称</label><input type="text" name="bookName" value="<%= book.getBookName() %>"  required><br> 
 					<label>書籍名称カナ</label><input type="text" name="bookKana" value="<%= book.getBookKana() %>"  required><br> 
-					<label>価格</label><input type="number" name="price" value="<%= book.getPrice() %>"  required><br>
+					<label>価格</label><input type="number" class="no_spin" name="price" value="<%= book.getPrice() %>" min="0" step="1" required><br>
 					<label>発行日</label><input type="date" name="issueDate" value="<%= book.getIssueDate() %>"  required><br>
 					<label>登録日時</label><input type="datetime-local" name="createDateTime" value="<%= book.getCreateDateTime()%>"  required><br> 
 					<input type="hidden" name="beforeJanCode" value="<%= book.getJanCode() %>" required>

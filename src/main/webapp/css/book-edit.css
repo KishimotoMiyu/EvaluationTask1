@@ -9,19 +9,21 @@
 
 	  main{
 		  background-color:#D8D5C4;
-		  min-height:80vh;
+		  min-height:85vh;
 		  padding:60px;
 	  }
 	  
 	  .container{
 		  background-color: #fff;
-		  padding:30px;
+		  padding:60px;
 		  width:100%;
 		  max-width:90vw;
 		  min-height:70vh;
 		  margin:0 auto;
 		  border-radius: 10px;
-		  padding-top:130px;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
 	  }
 	  
 	  .site_title , .section_title{
@@ -100,3 +102,11 @@
 	.back a{
 		color:rgb(99, 98, 92);
 	}
+	
+	/* type=numberのスピンボタンを消す */
+	.no_spin::-webkit-inner-spin-button,
+.no_spin::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    -moz-appearance:textfield !important;
+}

@@ -17,8 +17,8 @@
 </header>
 <main>
 	<div class="container">
-		<p class="section_title">商品一覧</p>
-		<p class="message">${message}</p>
+		<p id="section_title">商品一覧</p>
+		<p id="message">${message}</p>
 			<table>
 					<thead>
 						<tr>
@@ -131,7 +131,7 @@
 									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getIsbnCode() %></a></td>
 									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getBookName() %></a></td>
 									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getBookKana() %></a></td>
-									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getPrice() %></a></td>
+									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getPrice() %>円</a></td>
 									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getIssueDate() %></a></td>
 									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getCreateDateTime() %></a></td>
 									<td class="td"><a href="bookedit?edit=edit&janCode=<%= columns.getJanCode() %>"><%= columns.getUpdateDateTime() != null? columns.getUpdateDateTime() : "未更新"%></a></td>

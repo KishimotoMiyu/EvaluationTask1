@@ -119,12 +119,8 @@ public class BookDAO {
 				
 			}
 			
-			System.out.println(sql);
-			
-			
 			try(Connection con = DBConnection.getConnection();
 					PreparedStatement stmt = con.prepareStatement(sql)){
-				// stmt.setString(1, column);
 				
 				ResultSet res = stmt.executeQuery();
 				while(res.next()) {
