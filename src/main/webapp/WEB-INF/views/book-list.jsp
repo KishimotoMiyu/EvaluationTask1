@@ -14,7 +14,7 @@
 		<header>
 			<div id="header_inner">
 				 <div class="header_left">
-				 	<h1 class="site_title"><a href="booklist"> <img src="img/book.png">書籍管理アプリ</a></h1>
+				 	<h1 class="site_title"><a href="booklist">書籍管理アプリ</a></h1>
 				 </div>
 				 <div class="header_right">
 				  	 <nav>
