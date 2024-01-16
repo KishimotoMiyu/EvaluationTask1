@@ -210,5 +210,32 @@ public class BookDAO {
 		
 	}
 	
+	//新規登録用のメソッド
+		public int insertBook(String janCode, String isbnCode, String bookName, String bookKana, int price, String issueDate) throws ClassNotFoundException, SQLException {
+			String sql = "INSERT INTO sample.BOOK(JAN_CD, ISBN_CD, BOOK_NM, BOOK_KANA, PRICE, ISSUE_DATE, CREATE_DATETIME) VALUES( ? , ? , ? , ? , ?, ?  , CURRENT_TIME)";
+			int row = 0;
+			
+			try (Connection con = DBConnection.getConnection();
+					PreparedStatement pstmt = con.prepareStatement(sql)) {
+				pstmt.setString(1, janCode);
+				pstmt.setString(2, isbnCode);
+				pstmt.setString(3, bookName);
+				pstmt.setString(4, bookKana);
+				pstmt.setInt(5, price);
+				pstmt.setDate(6, java.sql.Date.valueOf(issueDate));
+				row = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				System.err.println("SQLエラーが発生しました。エラーメッセージ: " + e.getMessage() + 
+	                    ", SQLステート: " + e.getSQLState() + 
+	                    ", エラーコード: " + e.getErrorCode());
+			} catch (Exception e) {
+					System.err.println("予期せぬ例外が発生しました。エラーの種類: " + e.getClass().getName() + 
+	                    ", メッセージ: " + e.getMessage() + 
+	                    ", スタックトレース: " + Arrays.toString(e.getStackTrace()));
+			}
+			return row;
+			
+		}
+	
 }
 

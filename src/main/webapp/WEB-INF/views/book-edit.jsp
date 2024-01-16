@@ -35,7 +35,7 @@
 				</form>
 				
 			</div>
-		</main
+		</main>
 </body>
 <footer>
 </footer>

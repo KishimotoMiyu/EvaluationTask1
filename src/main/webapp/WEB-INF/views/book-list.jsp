@@ -14,6 +14,13 @@
  <div class="header_inner">
  	<h1 class="site_title"><a href="booklist">書籍管理アプリ</a></h1>
  </div>
+ <div>
+  <nav>
+   <ul>
+   <li><a href="bookregister">新規登録</a></li>
+   </ul>
+  </nav>
+ </div>
 </header>
 <main>
 	<div class="container">

@@ -24,24 +24,4 @@ public class BookListServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/book-list.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		
-		BookDAO bookDao = new BookDAO();
-		int update = (Integer)request.getAttribute("update");
-		
-		try {
-			request.setAttribute("bookList", bookDao.getBookList());
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		if( update == 1 ){
-			String bookName = (String)request.getAttribute("bookName");
-			request.setAttribute("message", "書籍名称 「" + bookName + "」の情報更新が完了しました");
-		} else {
-			request.setAttribute("message","更新できませんでした");
-		}
-		request.getRequestDispatcher("/WEB-INF/views/book-list.jsp").forward(request, response);
-	}
 }

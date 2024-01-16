@@ -66,13 +66,19 @@ public class BookEditServlet extends HttpServlet {
 		try{
 			//変更する
 			update = bookDao.UpdateBook(janCode, isbnCode, bookName, bookKana, price, issueDate, createDateTime ,beforeJanCode);
+			request.setAttribute("bookList", bookDao.getBookList());
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+
+		if( update == 1 ){
+			request.setAttribute("message", "書籍名称 「" + bookName + "」の情報更新が完了しました");
+		} else {
+			request.setAttribute("message","更新できませんでした");
+		}
 		
-		request.setAttribute("update", update);
-		request.setAttribute("bookName", bookName);
-		request.getRequestDispatcher("/booklist").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/book-list.jsp").forward(request, response);
+		
 	}
 	
 	private Timestamp convertToTimestamp(String dateString) {
