@@ -13,36 +13,46 @@
 </head>
 <body>
 	<header>
- 	<div class="header_inner">
- 	<h1 class="site_title"><a href="booklist">書籍管理アプリ</a></h1>
- </div>
-</header>
+		<div id="header_inner">
+			 <div class="header_left">
+			 	<h1 class="site_title"><a href="booklist">書籍管理アプリ</a></h1>
+			 </div>
+			 <div class="header_right">
+			  	 <nav>
+					   <ul>
+						   <li><a href="booklist">書籍一覧</a></li>
+						   <li><a href="bookregister">新規登録</a></li>
+					   </ul
+			 	 </nav>
+			 </div>
+		</div>
+	</header>
 	<main>
 			
 			<div class="container">
-			
-				<form action="bookedit" method="post">	      
+				<form action="bookedit" method="post">	 
+				<p id="section_title">書籍情報更新</p>     
 					<label>JANコード</label><input class="no_spin" type="number" name="janCode" value="<%= book.getJanCode() %>" min="0" step="1" required>
-					<span>※13桁以内で入力してください</span><br>
+					<span class="caption">※13桁以内で入力してください</span><br>
 					<% if( errorMessages != null) { %>
 						<% if(errorMessages.containsKey("janCode")) { %>
-							<p class="error_message"><%= errorMessages.get("janCode") %></p>
+							<span class="error_message"><%= errorMessages.get("janCode") %></span><br>
 							<% errorMessages.remove("janCode"); %>
 						<% } %>
 					<% } %>
 					
 					<% if( errorMessages != null) { %>
 						<% if(errorMessages.containsKey("primaryJanCode")) { %>
-							<p class="error_message"><%= errorMessages.get("primaryJanCode") %></p>
+							<span class="error_message"><%= errorMessages.get("primaryJanCode") %></span><br>
 							<% errorMessages.remove("primaryJanCode"); %>
 						<% } %>
 					<% } %>
 					
 					<label>ISBNコード</label><input type="number" class="no_spin" name="isbnCode" value="<%= book.getIsbnCode() %>" min="0" step="1" required>
-					<span>※13桁以内で入力してください</span><br>
+					<span class="caption">※13桁以内で入力してください</span><br>
 					<% if( errorMessages != null) { %>
 						<% if(errorMessages.containsKey("isbnCode")) { %>
-							<p class="error_message"><%= errorMessages.get("isbnCode") %></p>
+							<span class="error_message"><%= errorMessages.get("isbnCode") %></span><br>
 							<% errorMessages.remove("isbnCode"); %>
 						<% } %>
 					<% } %>
@@ -50,7 +60,7 @@
 					<label>書籍名称</label><input type="text" name="bookName" value="<%= book.getBookName() %>"  required><br> 
 					<% if( errorMessages != null) { %>
 						<% if(errorMessages.containsKey("bookName")) { %>
-							<p class="error_message"><%= errorMessages.get("bookName") %></p>
+							<span class="error_message"><%= errorMessages.get("bookName") %></span><br>
 							<% errorMessages.remove("bookName"); %>
 						<% } %>
 					<% } %>
@@ -58,7 +68,7 @@
 					<label>書籍名称カナ</label><input type="text" name="bookKana" value="<%= book.getBookKana() %>"  required><br> 
 					<% if( errorMessages != null) { %>
 						<% if(errorMessages.containsKey("bookKana")) { %>
-							<p class="error_message"><%= errorMessages.get("bookKana") %></p>
+							<span class="error_message"><%= errorMessages.get("bookKana") %></span><br>
 							<% errorMessages.remove("bookKana"); %>
 						<% } %>
 					<% } %>
@@ -66,7 +76,7 @@
 					<label>価格</label><input type="number" class="no_spin" name="price" value="<%= book.getPrice() %>" min="0" max="2147483647" step="1" required><br>
 					<% if( errorMessages != null) { %>
 						<% if(errorMessages.containsKey("price")) { %>
-							<p class="error_message"><%= errorMessages.get("price") %></p>
+							<span class="error_message"><%= errorMessages.get("price") %></span><br>
 							<% errorMessages.remove("price"); %>
 						<% } %>
 					<% } %>
@@ -82,5 +92,8 @@
 		</main>
 </body>
 <footer>
+	<span>
+		<p>&copy; kishimoto</p>
+	</span>
 </footer>
 </html>

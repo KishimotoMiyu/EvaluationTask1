@@ -8,16 +8,15 @@
 	  }
 
 	  main{
-		  background-color:#D8D5C4;
 		  min-height:85vh;
 		  padding:60px;
 	  }
 	  
 	  .container{
-		  background-color: #fff;
+		 background-color:#EDEDED;
 		  padding:60px;
 		  width:100%;
-		  max-width:90vw;
+		  max-width:1200px;
 		  min-height:70vh;
 		  margin:0 auto;
 		  border-radius: 10px;
@@ -28,7 +27,7 @@
 	  
 	  .site_title , .section_title{
 		  font-size: 24px;
-		  line-height: 60px;
+		  line-height: 100px;
 		  letter-spacing: 2px;
 	  }
 	  
@@ -37,27 +36,76 @@
 		  text-decoration: none;
 	  }
 	  
+	  a:hover{
+		  opacity: .7;
+	  }
+	  
+	  li{
+		 list-style: none;
+		 margin-left:30px;
+		 }
+		 
+		 
 	  /* header */
 	  
 	   header , footer{
-		  height:60px;
-		  background-color:rgb(99, 98, 92);
+		  height:100px;
+	  }
+	  
+	  header ul{
+		  display: flex;
+	  }
+	  
+	  footer p {
+		  text-align: center;
+	  }
+	  	  
+	  #header_inner{
+		  display: flex;
+		  justify-content: space-between;
+		  width: 1200px;
+		  margin:0 auto;
+		  line-height: 100px;
 		  
 	  }
+	 
 	  
-	  a:hover , #submit:hover {
-			 opacity: .7; 
+	  
+	  .header_left a:hover {
+			 opacity: .7;
 		 }
+		 
+	 .header_right a{
+		 padding: 5px;
+		 border-bottom: 1px solid transparent;
+		  transition :border-bottom 0.8s ease;
+	 }
+	 
+	  .header_right a:hover {
+		border-bottom: 1px solid rgb(34, 35, 35);
+
+		 }
+	 
+
 	  
 	  header a {
-		   color:#fff;
+		   color:rgb(34, 35, 35);
 	  }
 	  
-	  .header_inner{
-		  margin:0 auto;
-		  width: 100%;
-		  max-width:1200px;
+	  #message{
+		  font-weight: bold;
+		  font-weight: 12px;
+		  padding-bottom:10px;
+		  padding-left:100px;
 	  }
+	  
+	   #section_title{
+		  font-size: 24px;
+		  line-height: 100px;
+		  letter-spacing: 2px;
+	  }
+	  
+	  
 	  
 	  /* form関係 */
 	  
@@ -96,17 +144,27 @@
 	
 	.back{
 		margin-top:40px ;
+		font-size: 12px;
 		text-align: center;
 		line-height: 60px;
 	}
 	
 	.back a{
-		font-size: 20px;
+		font-size: 16px;
 		color:rgb(99, 98, 92);
 	}
 	
-	span{
+	.caption{
 		padding-left:180px;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	
+	.error_message{
+		padding-left:180px;
+		font-size: 14px;
+		font-weight: bold;
+		color:rgb(184, 47, 16)
 	}
 	
 	/* type=numberのスピンボタンを消す */
@@ -114,5 +172,4 @@
 .no_spin::-webkit-outer-spin-button {
     -webkit-appearance: none !important;
     margin: 0 !important;
-    -moz-appearance:textfield !important;
 }

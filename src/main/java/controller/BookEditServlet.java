@@ -73,16 +73,16 @@ public class BookEditServlet extends HttpServlet {
 		HashMap<String, String> errorMessages = new HashMap<>();
 		
 			if( janCode.length() > 13 ) {
-				errorMessages.put("janCode", "13桁以内で記述してください");
+				errorMessages.put("janCode", "13桁を超えています");
 			}
 			
 			boolean primaryCheck = bookDao.primaryCheck(janCode);
-			if( !primaryCheck && janCode != beforeJanCode) {
+			if( !primaryCheck && !janCode.equals(beforeJanCode)) {
 				errorMessages.put("primaryJanCode", "既に存在しているJANコードです");
 			}
 			
 			if( isbnCode.length() > 13 ) {
-				errorMessages.put("isbnCode", "13桁以内で記述してください");
+				errorMessages.put("isbnCode", "13桁を超えています");
 			}
 		
 			if( priceStr.length() > 9 ) {
@@ -92,11 +92,11 @@ public class BookEditServlet extends HttpServlet {
 			}
 			
 			if( bookName.length() > 500 ) {
-				errorMessages.put("bookName", "500文字以内で記述してください");
+				errorMessages.put("bookName", "500文字以内で入力してください");
 			}
 			
 			if( bookKana.length() > 500 ) {
-				errorMessages.put("bookKana", "500文字以内で記述してください");
+				errorMessages.put("bookKana", "500文字以内で入力してください");
 			}
 			
 			
