@@ -1,6 +1,10 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.HashMap;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -33,8 +37,54 @@ public class BookRegisterServlet extends HttpServlet {
 		String isbnCode = (String)request.getParameter("isbnCode");
 		String bookName = (String)request.getParameter("bookName");
 		String bookKana = (String)request.getParameter("bookKana");
-		int price = Integer.parseInt(request.getParameter("price"));
+		String priceStr = (String)request.getParameter("price");
 		String issueDate = (String)request.getParameter("issueDate");
+		int price = 0;
+		
+		HashMap<String, String> errorMessages = new HashMap<>();
+		
+		if( janCode.length() > 13 ) {
+			errorMessages.put("janCode", "13桁以内で記述してください");
+		}
+		
+		boolean primaryCheck = bookDao.primaryCheck(janCode);
+		if( !primaryCheck ) {
+			errorMessages.put("primaryJanCode", "既に存在しているJANコードです");
+		}
+		
+		if( isbnCode.length() > 13 ) {
+			errorMessages.put("isbnCode", "13桁以内で記述してください");
+		}
+	
+		if( priceStr.length() > 9 ) {
+			errorMessages.put("price", "9桁以内で記述してください");
+		} else {
+			price = Integer.parseInt(request.getParameter("price"));
+		}
+		
+		if( bookName.length() > 500 ) {
+			errorMessages.put("bookName", "500文字以内で記述してください");
+		}
+		
+		if( bookKana.length() > 500 ) {
+			errorMessages.put("bookKana", "500文字以内で記述してください");
+		}
+		
+		
+		
+		if(!errorMessages.isEmpty()) {
+			
+			request.setAttribute("janCode" , janCode);
+			request.setAttribute("isbnCode" , isbnCode);
+			request.setAttribute("bookName" , bookName);
+			request.setAttribute("bookKana" , bookKana);
+			request.setAttribute("price" , price);
+			request.setAttribute("issueDate" ,convertToDate(issueDate));		
+			request.setAttribute("registerErrorMSG", errorMessages);
+			request.getRequestDispatcher("/WEB-INF/views/book-register.jsp").forward(request, response);
+			return;
+		}
+		
 		
 		try{
 			//変更する
@@ -52,4 +102,19 @@ public class BookRegisterServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/WEB-INF/views/book-list.jsp").forward(request, response);
 	}
+	
+	//日付をStringからDateへ
+		private Date convertToDate(String dateString) {
+			
+	        try {
+	            DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	            LocalDate ld = LocalDate.parse(dateString , dateFormat);
+	            Date parsedDate = java.sql.Date.valueOf(ld);
+	            return parsedDate;
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+	     
+	    }
 }

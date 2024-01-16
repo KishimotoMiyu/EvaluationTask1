@@ -257,6 +257,35 @@ public class BookDAO {
 			
 			return row;
 		}
+		
+		//プライマリキーチェック
+		public boolean primaryCheck(String janCode) {
+			boolean check = false;
+			int count = -1;
+			String sql = "SELECT COUNT( * )AS c FROM sample.BOOK WHERE JAN_CD = ? ";
+			try(Connection con = DBConnection.getConnection();
+					PreparedStatement pstmt = con.prepareStatement(sql)){
+						pstmt.setString(1, janCode);
+					    ResultSet res = pstmt.executeQuery();
+					    while (res.next()) {
+					    	count = res.getInt("c");
+					    	if( count == 0) {
+								check = true;
+							}
+					    }
+			} catch (SQLException e) {
+				System.err.println("SQLエラーが発生しました。エラーメッセージ: " + e.getMessage() + 
+	                    ", SQLステート: " + e.getSQLState() + 
+	                    ", エラーコード: " + e.getErrorCode());
+			} catch (Exception e) {
+					System.err.println("予期せぬ例外が発生しました。エラーの種類: " + e.getClass().getName() + 
+	                    ", メッセージ: " + e.getMessage() + 
+	                    ", スタックトレース: " + Arrays.toString(e.getStackTrace()));
+			}
+			
+			return check;
+			
+		}
 	
 }
 
