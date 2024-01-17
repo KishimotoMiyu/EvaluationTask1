@@ -286,6 +286,44 @@ public class BookDAO {
 			return check;
 			
 		}
+		
+		//検索機能
+		public List<BookBean> getSearchBookList(String [] word) throws ClassNotFoundException, SQLException {
+			
+			List<BookBean> list = new ArrayList <BookBean> ();
+			String sql ="SELECT * FROM BOOK WHERE ";
+			for(String book : word ) {
+				sql += "BOOK_NM LIKE '%" + book +  "%' AND ";
+			}	
+			
+			sql = sql.substring(0, sql.length() - 4);
+			try(Connection con = DBConnection.getConnection();
+					PreparedStatement stmt = con.prepareStatement(sql)){
+				ResultSet res = stmt.executeQuery();
+				while(res.next()) {
+					BookBean book = new BookBean();
+					book.setJanCode(res.getString("JAN_CD"));
+					book.setIsbnCode(res.getString("ISBN_CD"));
+					book.setBookName(res.getString("BOOK_NM"));
+					book.setBookKana(res.getString("BOOK_KANA"));
+					book.setPrice(res.getInt("PRICE"));
+					book.setIssueDate(res.getDate("ISSUE_DATE"));
+					book.setCreateDateTime(res.getTimestamp("CREATE_DATETIME"));
+					book.setUpdateDateTime(res.getTimestamp("UPDATE_DATETIME"));
+					list.add(book);
+				}
+			} catch (SQLException e) {
+				System.err.println("SQLエラーが発生しました。エラーメッセージ: " + e.getMessage() + 
+	                               ", SQLステート: " + e.getSQLState() + 
+	                               ", エラーコード: " + e.getErrorCode());
+			} catch (Exception e) {
+				System.err.println("予期せぬ例外が発生しました。エラーの種類: " + e.getClass().getName() + 
+	                               ", メッセージ: " + e.getMessage() + 
+	                               ", スタックトレース: " + Arrays.toString(e.getStackTrace()));
+			}
+			return list;
+	
+		}
 	
 }
 

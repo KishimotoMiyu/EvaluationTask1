@@ -18,9 +18,10 @@
 				 </div>
 				 <div class="header_right">
 				  	 <nav>
-						   <ul>
+						   <ul id="header_ul">
+							   <li><a href="booklist">書籍一覧</a></li>
 							   <li><a href="bookregister">新規登録</a></li>
-						   </ul>
+					 	  </ul
 				 	 </nav>
 				 </div>
 			</div>
@@ -30,6 +31,11 @@
 					<p id="section_title">商品一覧</p>
 					 <span>※項目欄横のマークで昇順もしくは降順に並び替えが可能です。</span>
 					<p id="message">${message}</p>
+					<form action="booksearch" method="get">
+						<input class="searchbox" type="text" value="${search}" name="searchName" placeholder="書籍タイトルで検索 ※100文字以内" maxlength="100">
+						<input type="hidden" value="search" name="search">
+						<input class="submit" type="submit" value="">
+					</form>
 						<table>
 								<thead>
 									<tr>

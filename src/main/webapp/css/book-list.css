@@ -65,6 +65,14 @@
 		  
 	  }
 	  
+	    
+	  #header_ul{
+		  display: flex;
+	  }
+	  
+	  #header_ul li{
+		   margin-left:30px;
+	  }
 	  
 	  .header_left a:hover {
 			 opacity: .7;
@@ -229,4 +237,19 @@
 	  
 	  .modalClose:hover, .delete:hover{
 		  opacity: .6;
+	  }
+	  
+	  /* 検索バー */
+	  .searchbox{
+		  width: 300px;
+		  border: none;
+		  border-radius: 5px;
+		  height:30px;
+		  padding-left:10px;
+		  margin-left:100px;
+	  }
+	  
+	  .submit{
+		border: none;
+		background-color: transparent;
 	  }

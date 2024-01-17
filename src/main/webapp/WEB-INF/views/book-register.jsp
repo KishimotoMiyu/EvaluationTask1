@@ -18,8 +18,9 @@
 			 </div>
 			 <div class="header_right">
 			  	 <nav>
-					   <ul>
+					    <ul id="header_ul">
 						   <li><a href="booklist">書籍一覧</a></li>
+						   <li><a href="bookregister">新規登録</a></li>
 					   </ul
 			 	 </nav>
 			 </div>
