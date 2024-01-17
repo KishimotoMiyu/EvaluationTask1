@@ -95,7 +95,7 @@ public class BookRegisterServlet extends HttpServlet {
 		}
 
 		if( register == 1 ){
-			request.setAttribute("message", "書籍名称 「" + bookName + "」の情報更新が完了しました");
+			request.setAttribute("message", "書籍名称 「" + bookName + "」の新規登録が完了しました");
 		} else {
 			request.setAttribute("message","更新できませんでした");
 		}

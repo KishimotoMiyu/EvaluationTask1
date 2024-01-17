@@ -5,8 +5,11 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title>書籍管理アプリ / 商品一覧</title>
+	<title>書籍管理アプリ / 書籍一覧</title>
 	<link rel="stylesheet" href="css/book-list.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
 	 <% List<BookBean> bookList = (ArrayList <BookBean>)request.getAttribute("bookList");%>
 	 <% int i = 0; %>
 	</head>
@@ -27,6 +30,11 @@
 			</div>
 		</header>
 			<main>
+			<div class="txt_anime">
+			  <p>BOOK LIST</p>
+			</div>
+				<div id="light">
+				</div>
 				<div class="container">
 					<p id="section_title">商品一覧</p>
 					 <span>※項目欄横のマークで昇順もしくは降順に並び替えが可能です。</span>
@@ -221,7 +229,15 @@
 					  }
 
 					}} 
-				
+
+
+				//照明
+					const lightImg = document.getElementById("light");
+					function changeImg(){
+					lightImg.classList.toggle("on");
+					}
+
+					lightImg.addEventListener("click",changeImg);
 			</script>
 	</body>
 </html>

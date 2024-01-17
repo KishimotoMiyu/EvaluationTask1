@@ -110,7 +110,7 @@ public class BookEditServlet extends HttpServlet {
 				book.setPrice(price);
 				book.setIssueDate(convertToDate(issueDate));
 				book.setCreateDateTime(convertToTimestamp(createDateTimeStr));
-				request.setAttribute(beforeJanCode, beforeJanCode);
+				request.setAttribute("beforeJanCode", beforeJanCode);
 				request.setAttribute("editErrorMSG", errorMessages);
 				request.setAttribute("bookEdit", book);
 				request.getRequestDispatcher("/WEB-INF/views/book-edit.jsp").forward(request, response);
